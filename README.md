@@ -35,6 +35,25 @@ def deps do
 end
 ```
 
+In your `application.ex` file add `PrometheusVerk` as a worker. E.g.:
+
+```elixir
+def start(_type, _args) do
+    import Supervisor.Spec
+
+    # Define workers and child supervisors to be supervised
+    children = [
+      supervisor(MyApp.Repo, []),
+      supervisor(MyApp.Web.Endpoint, []),
+      supervisor(Verk.Supervisor, []),
+      worker(PrometheusVerk, []) # <----- THIS
+    ]
+
+    opts = [strategy: :one_for_one, name: MyApp.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+```
+
 ## Changelog
 
 A changelog is kept in the [CHANGELOG.md](/CHANGELOG.md) file.
