@@ -4,13 +4,17 @@
 [Verk](https://github.com/edgurgel/verk).
 
 The following metrics are exported:
-- [x] job duration
-- [x] job duration before failure
+
+Things that don't make sense:
 - [x] total number of finished jobs
 - [x] total number of failed jobs
 - [x] total number of started jobs
 - [x] total number of retried jobs
 - [x] total number of stopped queues
+
+Things that make sense:
+- [x] job duration
+- [x] job duration before failure
 - [x] current number of failed jobs
 - [x] current number of finished jobs
 - [x] current number of running jobs
